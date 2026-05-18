@@ -1,7 +1,11 @@
 import java.util.Scanner;
+import java.util.Locale;
+
 
 public class Main{
     public static void main(String[] args) {
+
+        Locale.setDefault(Locale.US);
         Scanner entrada = new Scanner(System.in);
 
         int opcao = -1;
@@ -13,8 +17,8 @@ public class Main{
             System.out.println("3 - Multiplicação");
             System.out.println("4 - Divisão");
             System.out.println("Digite 0 para sair");
-            System.out.println("Escolha uma opção:");
-            
+            System.out.println("\nEscolha uma opção:");
+
             opcao = entrada.nextInt();
 
             if (opcao == 0) {
@@ -24,12 +28,12 @@ public class Main{
             } else {       
                 
                 System.out.println("Digite o primeio número:");
-                int numero1 = entrada.nextInt();
+                double numero1 = entrada.nextDouble();
 
                 System.out.println("Digite o segundo número:");
-                int numero2 = entrada.nextInt();
+                double numero2 = entrada.nextDouble();
 
-                int resultado;
+                double resultado;
 
                 switch (opcao) {
                     case 1:
