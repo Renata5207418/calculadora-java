@@ -18,20 +18,17 @@ public class Main{
         while (opcao != 0) {
 
             exibirMenu();
-            opcao = entrada.nextInt();
+            opcao = lerOpcao(entrada);
             
             if (opcao == 0) {
                 System.out.println("Encerrando a calculadora.");  
             }else if (opcao == 5) {
                 exibirHistorico(historico);                        
-            } else if (opcao < 1 || opcao > 4) {
+            } else if (opcao < 1 || opcao > 5) {
                 System.out.println("Opção inválida. Por favor, escolha uma opção entre 1 e 5 ou 0 para sair.");
             } else {
-                System.out.print("Digite o primeiro número: ");
-                double numero1 = entrada.nextDouble();
-                
-                System.out.print("Digite o segundo número: ");
-                double numero2 = entrada.nextDouble();
+                double numero1 = lerNumero(entrada, "Digite o primeiro número: ");                
+                double numero2 = lerNumero(entrada, "Digite o segundo número: ");
 
                 double resultado;
                 String conta;
@@ -82,6 +79,25 @@ public class Main{
         System.out.println("5 - Histórico de operações");
         System.out.println("Digite 0 para sair.");
         System.out.print("\nEscolha uma opção: ");
+    }
+
+    public static int lerOpcao(Scanner entrada) {
+        while (!entrada.hasNextInt()) {
+            System.out.println("Entrada inválida. Digite apenas números.");
+            entrada.next();
+            System.out.print("Escolha uma opção: ");
+        }
+        return entrada.nextInt();
+    }
+
+    public static double lerNumero(Scanner entrada, String mensagem) {
+        System.out.print(mensagem);
+        while (!entrada.hasNextDouble()) {
+        System.out.println("Entrada inválida. Digite um número válido, exemplo: 10.5");
+        entrada.next();
+        System.out.print(mensagem);
+        }
+        return entrada.nextDouble();
     }
 
     public static void exibirHistorico(ArrayList<String> historico) {
