@@ -37,8 +37,13 @@ public class Main{
                 System.out.println("Resultado da multiplicação: " + resultado);
                 break;
             case 4:
-                resultado = numero1 / numero2;
-                System.out.println("Resultado da divisão: " + resultado);
+                if (numero2 == 0) {
+                    System.out.println("Erro: não é possível dividir por zero.");
+                
+                } else {
+                    resultado = numero1 / numero2;
+                    System.out.println("Resultado da divisão: " + resultado);
+                }
                 break;        
         }
 
